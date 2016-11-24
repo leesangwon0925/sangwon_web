@@ -1,0 +1,76 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>jQuery를 이용한 구구단 사이트</title>
+		<meta charset ="utf-8">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		
+		<style>
+			th{text-align:center;}
+		</style>
+		
+		<script>
+		$(document).ready(function(){
+				$("button").click(function(){
+					var num = $(this).text().substring(0,1);
+					var data;
+					var i;
+					
+					$("#googoo").html("");
+					data = "<table class=\"table table-bordered text-center\"><tbody>";
+					
+					data += "<tr><td>"+num+"단</td></tr>";
+					for (i=1;i<=9;i++){
+						data += "<tr><td>"+num+" * "+i+" = "+(i*num)+"</td></tr>";
+					}
+					data += "</tbody></table>";
+					
+					$("#googoo").append(data);
+				});
+			});
+		</script>
+		
+	</head>
+	<body>
+		<div class="jumbotron text-center">
+			<h1>jQuery를 이용한 구구단 사이트</h1>
+			<p>버튼을 클릭하면, 테이블에 구구단이 출력 됩니다.</p>
+		</div>
+		<div class="container text-center">
+			<div id="list">
+			
+			</div>
+			<hr>
+			<div id="googoo">
+			</div>
+		</div>
+	</body>
+</html>
+
+<script>
+	function DisplayList()
+	{
+		var html = "";
+		var i;
+		
+		for (i=2; i<=9; i++){
+			html += "<button type='button' class='btn btn-primary'>"+i+"단 표시</button>";
+		}
+		
+		$("#list").html(html);
+	}
+
+	
+</script>
+
+<script>
+	DisplayList();
+</script>
